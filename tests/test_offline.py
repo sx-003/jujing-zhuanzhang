@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from monitor import http, rules, sources  # noqa: E402
+from monitor import cloud  # noqa: E402
 from monitor import labels, state as state_mod  # noqa: E402
 from monitor import run as monitor_run  # noqa: E402
 
@@ -379,6 +380,21 @@ class TestTelegramBatching(unittest.TestCase):
         from monitor import telegram
         with self.assertRaises(telegram.PushError):
             telegram.send_message("fake-token", "fake-chat", "长" * (telegram.MAX_CHARS + 1))
+
+
+class TestCloud(unittest.TestCase):
+    def test_anysearch_endpoint_is_com(self):
+        self.assertEqual(cloud.ANYSEARCH_DEFAULT_BASE_URL, "https://api.anysearch.com")
+
+    def test_anysearch_json_parsed(self):
+        payload = json.dumps({"code": 0, "data": {"results": [{
+            "title": "Whale moved 12,000,000 USDT to exchange",
+            "url": "https://example.com/tx/1",
+            "snippet": "12,000,000 USDT from cold wallet to Binance",
+        }]}})
+        hits = cloud._hits_from_text(payload, "whale", "anysearch")
+        self.assertEqual(len(hits), 1)
+        self.assertEqual(hits[0].url, "https://example.com/tx/1")
 
 
 class TestDryRun(unittest.TestCase):

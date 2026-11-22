@@ -15,6 +15,7 @@ from typing import Dict, List, Optional
 from . import http, rules
 
 EXA_MCP = "https://mcp.exa.ai/mcp"
+ANYSEARCH_DEFAULT_BASE_URL = "https://api.anysearch.com"
 JSONRPC_HEADERS = {
     "Content-Type": "application/json",
     "Accept": "application/json, text/event-stream",
@@ -121,6 +122,33 @@ def _hits_from_text(text: str, query: str, engine: str) -> List[SearchHit]:
             snippet,
             (published_match.group(1).strip()[:40] if published_match else ""),
         ))
+    if hits:
+        return hits[:8]
+    # Anysearch 走 /v1/search 返回 JSON（{"code":0,"data":{"results":[...]}}）。
+    seen = set()
+    try:
+        parsed = json.loads(text)
+    except (ValueError, TypeError):
+        parsed = None
+    if parsed is not None:
+        def walk(value):
+            if isinstance(value, dict):
+                url = str(value.get("url") or value.get("link") or "")
+                if url.startswith("http") and url not in seen:
+                    seen.add(url)
+                    hits.append(SearchHit(
+                        query, engine, url,
+                        str(value.get("title") or "")[:300],
+                        str(value.get("snippet") or value.get("text")
+                            or value.get("content") or "")[:800],
+                        str(value.get("published") or value.get("date") or "")[:40],
+                    ))
+                for child in value.values():
+                    walk(child)
+            elif isinstance(value, list):
+                for child in value:
+                    walk(child)
+        walk(parsed)
     return hits[:8]
 
 
@@ -138,7 +166,7 @@ def _anysearch_keys() -> List[str]:
 
 
 def anysearch_search(query: str, key: str) -> List[SearchHit]:
-    url = f"{os.environ.get('ANYSEARCH_BASE_URL', 'https://api.anysearch.ai').rstrip('/')}/v1/search"
+    url = f"{os.environ.get('ANYSEARCH_BASE_URL', ANYSEARCH_DEFAULT_BASE_URL).rstrip('/')}/v1/search"
     payload = json.dumps({"query": query, "max_results": 5}).encode()
     headers = {"Content-Type": "application/json", "User-Agent": http.BROWSER_UA,
                "Authorization": f"Bearer {key}", "X-API-Key": key}
