@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-11-22T16:17:07.335626+00:00",
-  "finished_at": "2026-11-22T16:17:37.577453+00:00",
-  "gap_minutes": 534.8,
+  "started_at": "2026-11-22T22:28:28.783463+00:00",
+  "finished_at": "2026-11-22T22:28:52.738582+00:00",
+  "gap_minutes": 371.4,
   "mode": "send",
   "fetch_window_hours": 6.0,
   "push_window_hours": 5.0,
@@ -11,14 +11,14 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 657,
+      "count": 562,
       "error": "",
       "detail": {
-        "entries": 13660,
-        "in_window": 657,
-        "skipped_old": 13003,
+        "entries": 13661,
+        "in_window": 562,
+        "skipped_old": 13099,
         "truncated": true,
-        "bytes": 3094239
+        "bytes": 3094227
       }
     },
     {
@@ -26,11 +26,11 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 2,
+      "count": 0,
       "error": "",
       "detail": {
         "messages": 20,
-        "in_window": 2,
+        "in_window": 0,
         "mirror": "https://telegram.me/s/trackwhale",
         "mirrors_failed": []
       }
@@ -54,11 +54,11 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 7,
+      "count": 8,
       "error": "",
       "detail": {
         "rows": 16,
-        "in_window": 7,
+        "in_window": 8,
         "header": [
           "资产 / 时间",
           "转移金额",
@@ -115,7 +115,7 @@
       "layer": "chain",
       "ok": true,
       "status": "ok",
-      "count": 250,
+      "count": 215,
       "error": "",
       "detail": {
         "scanned": 20,
@@ -131,7 +131,7 @@
     "cex": 373,
     "attribution": 0,
     "hit": 0,
-    "miss": 315
+    "miss": 245
   },
   "cloud": {
     "queries": [
@@ -147,113 +147,65 @@
     "skipped": []
   },
   "stats": {
-    "raw": 966,
+    "raw": 835,
     "no_quantity": 0,
-    "filtered": 84,
-    "unlabeled": 772,
+    "filtered": 69,
+    "unlabeled": 643,
     "no_link": 0,
-    "too_old": 3,
-    "below_threshold": 94,
-    "pushable": 13
+    "too_old": 4,
+    "below_threshold": 114,
+    "pushable": 5
   },
   "candidates": [
     {
-      "message": "约 3980 万美元｜39,799,999 USDT（2 笔各 19,899,999 USDT）｜未知钱包 → Bybit｜约 11-22 19:37",
-      "usd": 39799998.8,
-      "direction": "转入交易所",
-      "count": 2,
-      "url": "https://etherscan.io/tx/0x0baf46e0a11355944597b544365f2ef611c4cde7edfb5971b5f53cfe2674ca5c",
-      "delay_minutes": 280.4
-    },
-    {
-      "message": "约 2700 万美元｜27,000,000 USDT｜未知钱包 → Bybit｜约 11-22 19:54",
-      "usd": 27000000.0,
-      "direction": "转入交易所",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0x6b9445678a26f8c5fe2d53981609bfc854db711471127d5dce3c68418cff228e",
-      "delay_minutes": 263.1
-    },
-    {
-      "message": "约 2627.72 万美元｜431.9135 BTC｜OKX → OKX｜约 11-22 21:35",
-      "usd": 26277182.57,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://mempool.space/tx/72055798d1fb9aceb77bee04705ecda396102b383371c48045d23079cb7f34e9",
-      "delay_minutes": 161.9
-    },
-    {
-      "message": "约 2545.23 万美元｜14,949 ETH｜OKX → OKX｜约 11-22 21:21",
-      "usd": 25452326.25,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0xd8a4ad25c467063911e9daad8237ea884cebb522f570b86f1943ab2974d0176c",
-      "delay_minutes": 175.8
-    },
-    {
-      "message": "约 2500 万美元｜25,000,000 USDT｜Bybit → 未知钱包｜约 11-22 22:56",
-      "usd": 25000000.0,
+      "message": "【加急】约 1 亿美元｜100,000,000 USDC｜Binance → 未知钱包｜约 05:18",
+      "usd": 100000000.0,
       "direction": "转出交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x7ca73fe29253c37649219bd597e3bd95dd0690da08d4953341915e02729ecf48",
-      "delay_minutes": 80.7
+      "url": "https://etherscan.io/tx/0x4ce2ad0a6540b235963f7c73a4779902e10162e6956c3d7ea0d712e7fa309192",
+      "delay_minutes": 70.5
     },
     {
-      "message": "约 2500 万美元｜25,000,000 USDT｜未知钱包 → Bybit｜约 11-22 19:49",
-      "usd": 25000000.0,
+      "message": "【加急】约 5001.57 万美元｜50,015,664 USDC｜未知钱包 → Coinbase｜约 03:06",
+      "usd": 50015663.901982,
       "direction": "转入交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x82a3dd755c46e1123b805401862cd66c79703bdad73956ce5a315f2f4e541083",
-      "delay_minutes": 268.0
+      "url": "https://etherscan.io/tx/0x32f5e2494aa4090471bf9c6f8fa38c6c25ea5ca997d49bf351b38f5ea53db5b9",
+      "delay_minutes": 202.3
     },
     {
-      "message": "约 2266.22 万美元｜22,662,179 USDT（2 笔各 11,331,089 USDT）｜OKX → OKX｜约 11-22 21:23",
-      "usd": 22662178.98,
-      "direction": "所间转账",
-      "count": 2,
-      "url": "https://etherscan.io/tx/0x14838ed8c42fc12452917784b38896d471a686c5ae68248bf16bdb8145202478",
-      "delay_minutes": 174.0
-    },
-    {
-      "message": "约 2076.45 万美元｜342.2089 BTC｜bc1qx9…8zntc → BNB｜约 11-22 22:31",
-      "usd": 20764500.0,
-      "direction": "转入交易所",
-      "count": 1,
-      "url": "https://flashai.vip/whales/5585ba7a44cc32f4118896b7a9104d9f051cecd8",
-      "delay_minutes": 106.6
-    },
-    {
-      "message": "约 1908.91 万美元｜19,089,138 USDT｜未知钱包 → OKX｜约 11-22 21:17",
-      "usd": 19089138.445753,
-      "direction": "转入交易所",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0x1a6a49c512ae033847152f7f2f0ca577216a2d345b929a84c83d8be0f27544a9",
-      "delay_minutes": 179.6
-    },
-    {
-      "message": "约 1000 万美元｜10,000,000 USDC｜Binance → 未知钱包｜约 00:01",
-      "usd": 10000000.0,
+      "message": "【加急】约 5000 万美元｜50,000,000 USDC｜Coinbase → 未知钱包｜约 03:02",
+      "usd": 50000000.06,
       "direction": "转出交易所",
       "count": 1,
-      "url": "https://bscscan.com/tx/0xd3a658dd505d54c97d6446a5979baf5d64be88528c35f671e3c644e20bee7a92",
-      "delay_minutes": 16.1
+      "url": "https://etherscan.io/tx/0x5ab71d02e2cf0a468876f49e520d26dee6f01f5345a7053108f3090887fbdb7a",
+      "delay_minutes": 206.7
     },
     {
-      "message": "约 1000 万美元｜10,000,000 USDC｜未知钱包 → Bybit｜约 11-22 19:39",
-      "usd": 10000000.0,
-      "direction": "转入交易所",
+      "message": "约 2000 万美元｜20,000,000 USDT｜Binance → 未知钱包｜约 05:19",
+      "usd": 20000000.0,
+      "direction": "转出交易所",
       "count": 1,
-      "url": "https://bscscan.com/tx/0x66378deac37373e8bf951f4184cd422bc917098e16d4f37fa92505f28e43a5a5",
-      "delay_minutes": 278.6
+      "url": "https://bscscan.com/tx/0x4fc92915f9925bec1ae68d03213c50a0f824919c26c353e897b676b7ea8d6c90",
+      "delay_minutes": 69.8
+    },
+    {
+      "message": "约 1191.35 万美元｜195.57 BTC｜OKX → OKX｜约 05:00",
+      "usd": 11913537.69,
+      "direction": "所间转账",
+      "count": 1,
+      "url": "https://mempool.space/tx/c715f65a6e98de8fe24052b2a52f60021a89a95b5e4e4ea917e64528aabaea9e",
+      "delay_minutes": 88.1
     }
   ],
   "telegram_messages": 1,
-  "round_message": "巨鲸转账 · 本轮 11 条\n\n转入交易所（6 条）\n约 3980 万美元｜39,799,999 USDT（2 笔各 19,899,999 USDT）｜未知钱包 → Bybit｜约 11-22 19:37\n约 1000 万美元｜10,000,000 USDC｜未知钱包 → Bybit｜约 11-22 19:39\n约 2500 万美元｜25,000,000 USDT｜未知钱包 → Bybit｜约 11-22 19:49\n约 2700 万美元｜27,000,000 USDT｜未知钱包 → Bybit｜约 11-22 19:54\n约 1908.91 万美元｜19,089,138 USDT｜未知钱包 → OKX｜约 11-22 21:17\n约 2076.45 万美元｜342.2089 BTC｜bc1qx9…8zntc → BNB｜约 11-22 22:31\n━━━━━━━━━━━━━━━━\n转出交易所（2 条）\n约 2500 万美元｜25,000,000 USDT｜Bybit → 未知钱包｜约 11-22 22:56\n约 1000 万美元｜10,000,000 USDC｜Binance → 未知钱包｜约 00:01\n━━━━━━━━━━━━━━━━\n所间转账（3 条）\n约 2545.23 万美元｜14,949 ETH｜OKX → OKX｜约 11-22 21:21\n约 2266.22 万美元｜22,662,179 USDT（2 笔各 11,331,089 USDT）｜OKX → OKX｜约 11-22 21:23\n约 2627.72 万美元｜431.9135 BTC｜OKX → OKX｜约 11-22 21:35",
+  "round_message": "巨鲸转账 · 本轮 5 条\n\n转入交易所（1 条）\n【加急】约 5001.57 万美元｜50,015,664 USDC｜未知钱包 → Coinbase｜约 03:06\n━━━━━━━━━━━━━━━━\n转出交易所（3 条）\n【加急】约 5000 万美元｜50,000,000 USDC｜Coinbase → 未知钱包｜约 03:02\n【加急】约 1 亿美元｜100,000,000 USDC｜Binance → 未知钱包｜约 05:18\n约 2000 万美元｜20,000,000 USDT｜Binance → 未知钱包｜约 05:19\n━━━━━━━━━━━━━━━━\n所间转账（1 条）\n约 1191.35 万美元｜195.57 BTC｜OKX → OKX｜约 05:00",
   "skipped_too_long": false,
   "archive": "state/archive/2026-11-22.jsonl",
-  "archive_only": 94,
+  "archive_only": 114,
   "push_delay_minutes": {
-    "min": 16.1,
-    "max": 280.4
+    "min": 69.8,
+    "max": 206.7
   },
   "push_failed": [],
   "rest": []
