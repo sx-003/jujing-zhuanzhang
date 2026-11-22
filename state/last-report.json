@@ -1,0 +1,240 @@
+{
+  "started_at": "2026-11-22T07:22:20.833950+00:00",
+  "finished_at": "2026-11-22T07:22:51.259212+00:00",
+  "gap_minutes": -1,
+  "mode": "send",
+  "fetch_window_hours": 6.0,
+  "push_window_hours": 5.0,
+  "sources": [
+    {
+      "name": "crypvu",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 641,
+      "error": "",
+      "detail": {
+        "entries": 13653,
+        "in_window": 641,
+        "skipped_old": 13012,
+        "truncated": true,
+        "bytes": 3094051
+      }
+    },
+    {
+      "name": "trackwhale",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 2,
+      "error": "",
+      "detail": {
+        "messages": 20,
+        "in_window": 2,
+        "mirror": "https://telegram.me/s/trackwhale",
+        "mirrors_failed": []
+      }
+    },
+    {
+      "name": "whale_alert",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 0,
+      "error": "",
+      "detail": {
+        "messages": 20,
+        "in_window": 0,
+        "mirror": "https://telegram.me/s/whale_alert_io",
+        "mirrors_failed": []
+      }
+    },
+    {
+      "name": "flashai",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 10,
+      "error": "",
+      "detail": {
+        "rows": 16,
+        "in_window": 10,
+        "header": [
+          "资产 / 时间",
+          "转移金额",
+          "数量",
+          "转出方 → 转入方",
+          "动作",
+          "网络",
+          ""
+        ]
+      }
+    },
+    {
+      "name": "coinstrooper",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 50,
+      "error": "",
+      "detail": {
+        "rows": 51,
+        "in_window": 50,
+        "header": [
+          "Time (UTC)",
+          "Chain",
+          "Type",
+          "Asset",
+          "Amount",
+          "From",
+          "To",
+          "Tx"
+        ]
+      }
+    },
+    {
+      "name": "ourscrypto",
+      "layer": "discovery",
+      "ok": true,
+      "status": "ok",
+      "count": 0,
+      "error": "",
+      "detail": {
+        "rows": 4,
+        "in_window": 0,
+        "header": [
+          "交易哈希",
+          "转账金额",
+          "类型与目的地",
+          "时间"
+        ]
+      }
+    },
+    {
+      "name": "blockscout",
+      "layer": "chain",
+      "ok": true,
+      "status": "ok",
+      "count": 102,
+      "error": "",
+      "detail": {
+        "scanned": 20,
+        "errors": [],
+        "addresses": 373
+      }
+    }
+  ],
+  "source_failures": {},
+  "all_sources_failed": false,
+  "price_source": "kraken",
+  "labels": {
+    "cex": 373,
+    "attribution": 0,
+    "hit": 0,
+    "miss": 104
+  },
+  "cloud": {
+    "queries": [
+      "巨鲸转账 交易所 转入 大额",
+      "大额 USDT 转入 交易所 链上",
+      "whale transfer exchange inflow 10 million"
+    ],
+    "engine_counts": {
+      "exa_public": 3
+    },
+    "hits": 15,
+    "errors": [],
+    "skipped": []
+  },
+  "stats": {
+    "raw": 805,
+    "no_quantity": 0,
+    "filtered": 53,
+    "unlabeled": 642,
+    "no_link": 0,
+    "too_old": 7,
+    "below_threshold": 89,
+    "pushable": 14
+  },
+  "candidates": [
+    {
+      "message": "【加急】约 1.028 亿美元｜102,803,147 USDT（2 笔）｜OKX → OKX｜约 10:53",
+      "usd": 102803146.91,
+      "direction": "所间转账",
+      "count": 2,
+      "url": "https://etherscan.io/tx/0x8211dbba7626f26582888a435a4b8529775ed3c18d5422bd602fdd9458034099",
+      "delay_minutes": 269.5
+    },
+    {
+      "message": "【加急】约 8946.24 万美元｜89,462,379 USDC（2 笔）｜Coinbase → 未知钱包｜约 13:07",
+      "usd": 89462379.0,
+      "direction": "转出交易所",
+      "count": 2,
+      "url": "https://etherscan.io/tx/0x6ad02e40aaa6f23ad64e05b73b060e9c23ab59b1c776969627e58c7c185f0e9e",
+      "delay_minutes": 135.7
+    },
+    {
+      "message": "【加急】约 5748.6 万美元｜57,486,010 USDC｜未知钱包 → Coinbase｜约 13:06",
+      "usd": 57486010.180663,
+      "direction": "转入交易所",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x4a8e76d4ca7b8123dd86a3ab03cf4e9b541c2182d5f4ce8cf983c3ec496e2179",
+      "delay_minutes": 136.7
+    },
+    {
+      "message": "【加急】约 5000 万美元｜50,000,000 USDC｜Coinbase → 未知钱包｜约 10:55",
+      "usd": 50000000.06,
+      "direction": "转出交易所",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x2926285400ba6bfe28e5bc38401cc4a52c38f716cbf7b04d1589cbab4efd090f",
+      "delay_minutes": 267.7
+    }
+  ],
+  "telegram_messages": 1,
+  "round_message": "巨鲸转账 · 本轮 4 条\n\n转入交易所（1 条）\n【加急】约 5748.6 万美元｜57,486,010 USDC｜未知钱包 → Coinbase｜约 13:06\n━━━━━━━━━━━━━━━━\n转出交易所（2 条）\n【加急】约 5000 万美元｜50,000,000 USDC｜Coinbase → 未知钱包｜约 10:55\n【加急】约 8946.24 万美元｜89,462,379 USDC（2 笔）｜Coinbase → 未知钱包｜约 13:07\n━━━━━━━━━━━━━━━━\n所间转账（1 条）\n【加急】约 1.028 亿美元｜102,803,147 USDT（2 笔）｜OKX → OKX｜约 10:53",
+  "skipped_too_long": false,
+  "archive": "state/archive/2026-11-22.jsonl",
+  "archive_only": 89,
+  "push_delay_minutes": {
+    "min": 135.7,
+    "max": 269.5
+  },
+  "push_failed": [],
+  "rest": [
+    {
+      "usd": 45930982.080046,
+      "direction": "转入交易所",
+      "url": "https://etherscan.io/tx/0xa4e4ce2c451a4197ec21771ef40c36f341ff12519fa64f0a2349a825c4c34726"
+    },
+    {
+      "usd": 32620895.77,
+      "direction": "所间转账",
+      "url": "https://etherscan.io/tx/0x6c4dee0be52198ad58ff5d6786f7b5c4fac71ab99f6ee37370ae214b29cf294d"
+    },
+    {
+      "usd": 26111728.73,
+      "direction": "所间转账",
+      "url": "https://mempool.space/tx/f4ed8ac5613fdc3d79345e2eb245adc0de2c48fa684095411510ebb95bbff650"
+    },
+    {
+      "usd": 18500000.0,
+      "direction": "转入交易所",
+      "url": "https://trackwhale.io/transaction/72f0fb742db5b9593ae58eae8d4af2a4a3022592ec06e598b7e973fa337d3a3f"
+    },
+    {
+      "usd": 17526703.892402,
+      "direction": "所间转账",
+      "url": "https://etherscan.io/tx/0x0da550500a22f98e69ec07eb01d9434d748c7d5fe9354f5c54024152342e764e"
+    },
+    {
+      "usd": 16700000.0,
+      "direction": "转出交易所",
+      "url": "https://trackwhale.io/transaction/0x12078ceca310220d13e40dd4e5e4b4028df1c86f50b8e7a1f507d5d0bebcb9b0"
+    },
+    {
+      "usd": 10037813.39,
+      "direction": "所间转账",
+      "url": "https://etherscan.io/tx/0x3d5ed9da555a092eb8f9e3db95e72430572f5b801096752022a20ad63946a464"
+    }
+  ]
+}
