@@ -1,0 +1,35 @@
+name: 刷新地址表（每日一次）
+
+on:
+  schedule:
+    # 每天 03:07 刷新一次，避开整点与半点
+    - cron: '7 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # 与主采集工作流共用分组，避免两个任务同时写 state 分支
+  group: juejing-zhuanzhang
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 下载最新版地址表并写入缓存
+        run: |
+          python main.py --refresh-labels
+
+      - name: 保存到 state 分支
+        run: bash scripts/persist_state.sh

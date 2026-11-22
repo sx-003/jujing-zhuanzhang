@@ -1,0 +1,85 @@
+{
+  "transfers": [
+    {
+      "source": "fixture",
+      "chain": "bitcoin",
+      "symbol": "BTC",
+      "amount": 5320,
+      "usd": 483000000,
+      "from_label": "BlackRock",
+      "to_label": "Coinbase",
+      "ts": 0,
+      "url": "https://whale-alert.io/transaction/bitcoin/1a2b3c",
+      "tx_hash": "1a2b3c"
+    },
+    {
+      "source": "fixture",
+      "chain": "ethereum",
+      "symbol": "USDT",
+      "amount": 197000000,
+      "usd": 197000000,
+      "from_label": "未知钱包",
+      "to_label": "Aave",
+      "ts": 0,
+      "url": "https://etherscan.io/tx/0xdeadbeef"
+    },
+    {
+      "source": "fixture",
+      "chain": "ethereum",
+      "symbol": "USDC",
+      "amount": 250000000,
+      "usd": 250000000,
+      "from_label": "USDC Treasury",
+      "to_label": "未知钱包",
+      "ts": 0,
+      "url": "https://etherscan.io/tx/0xfeedface"
+    },
+    {
+      "source": "fixture",
+      "chain": "ethereum",
+      "symbol": "USDT",
+      "amount": 20790,
+      "usd": 154500000,
+      "from_label": "Coinbase Institutional",
+      "to_label": "未知钱包",
+      "ts": 0,
+      "url": "https://whale-alert.io/transaction/ethereum/0xaaa"
+    },
+    {
+      "source": "fixture",
+      "chain": "bitcoin",
+      "symbol": "BTC",
+      "amount": 5000,
+      "usd": 320000000,
+      "from_label": "未知钱包",
+      "to_label": "未知钱包",
+      "ts": 0,
+      "url": "https://mempool.space/tx/unknownboth",
+      "tx_hash": "unknownboth"
+    },
+    {
+      "source": "fixture",
+      "chain": "ethereum",
+      "symbol": "ETH",
+      "amount": 20000,
+      "usd": 36000000,
+      "from_label": "未知钱包",
+      "to_label": "Wintermute",
+      "ts": 0,
+      "url": "https://etherscan.io/tx/0xwintermute",
+      "tx_hash": "0xwintermute"
+    },
+    {
+      "source": "whale_alert",
+      "chain": "ethereum",
+      "symbol": "USDC",
+      "amount": 77700000,
+      "usd": 77700000,
+      "from_label": "未知钱包",
+      "to_label": "Binance",
+      "ts": 0,
+      "url": "https://whale-alert.io/transaction/ethereum/0xslow",
+      "tx_hash": "0xslow"
+    }
+  ]
+}

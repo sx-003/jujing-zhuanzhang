@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+# 运行态只在 state 分支保存，主分支不提交
+state/state.json
+state/labels/
+state/archive/
+report.json
+demo.json
+probe.json
+.pytest_cache/

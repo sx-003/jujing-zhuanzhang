@@ -1,0 +1,118 @@
+name: 巨鲸转账监控
+
+on:
+  schedule:
+    # 每小时一次，避开整点（GitHub 整点高负载会丢任务）。
+    - cron: '17 * * * *'
+  push:
+    # 兜底：GitHub 给新仓注册定时任务有延迟，主分支有提交时先补跑一轮（只干跑）。
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      verify:
+        description: '人工核验：忽略去重、只推 4 条，用来检查消息格式'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: write   # 自续跑需要 dispatch 下一轮
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event_name }}
+  cancel-in-progress: ${{ github.event_name == 'push' }}
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    # 自续跑前会等 CHAIN_DELAY_SECONDS（默认 270 秒），所以这里给到 8 分钟。
+    timeout-minutes: 8
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 离线自检
+        # push 只干跑：中间态失败不发失败邮件；定时/手动仍按真实失败处理。
+        continue-on-error: ${{ github.event_name == 'push' }}
+        run: |
+          python main.py --self-check
+          python -m unittest discover -s tests -v
+
+      - name: 从 state 分支恢复去重状态
+        # push 只干跑：中间态失败不发失败邮件；定时/手动仍按真实失败处理。
+        continue-on-error: ${{ github.event_name == 'push' }}
+        run: bash scripts/restore_state.sh
+
+      - name: 采集并推送 Telegram（push 触发只干跑）
+        # push 只干跑：中间态失败不发失败邮件；定时/手动仍按真实失败处理。
+        continue-on-error: ${{ github.event_name == 'push' }}
+        id: collect
+        env:
+          ANYSEARCH_KEYS: ${{ secrets.ANYSEARCH_KEYS }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          EXTRA=""
+          if [ "${{ inputs.verify }}" = "true" ]; then EXTRA="--ignore-seen --max-push 4"; fi
+          set +e
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "事件 push：只干跑，不推送 Telegram；去重状态写单独的 dryrun 文件，不动正式状态。"
+            python main.py --dry-run --report report.json --max-queries 3 --state state/dryrun-state.json
+          else
+            echo "事件 ${{ github.event_name }}：正式推送 Telegram。"
+            python main.py --send --report report.json --max-queries 3 $EXTRA
+          fi
+          code=$?
+          set -e
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          echo "采集退出码 $code（0=全成功，1=部分源失败已隔离，2=推送或全源失败，5=配置问题）"
+          if [ "$code" -gt 1 ]; then exit "$code"; fi
+
+      - name: 保存状态到 state 分支
+        # 只有真正推送的轮次才写正式状态；push 的干跑不能污染去重库，否则定时推送会被吃掉。
+        if: always() && github.event_name != 'push'
+        run: bash scripts/persist_state.sh
+
+      - name: 每日活动心跳（保证公开仓不被停掉定时任务）
+        if: github.event_name != 'push'   # push 的干跑不写提交，避免自我触发
+        run: bash scripts/heartbeat.sh
+
+      - name: 上传运行报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: whale-report-${{ github.run_number }}
+          path: report.json
+          retention-days: 14
+
+      - name: 自续跑（仅正式轮且成功时 dispatch 下一轮）
+        # 总开关 vars.SELF_CHAIN：默认不续跑；只有在仓库 Settings → Variables 显式设 true 才续跑。
+        # push 轮绝不续跑（避免无限循环），退出码 >1 也不续跑（链条自然断掉，等下一次 schedule 恢复）。
+        if: >-
+          ${{
+            always() &&
+            vars.SELF_CHAIN == 'true' &&
+            (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&
+            steps.collect.outputs.exit_code != '' &&
+            steps.collect.outputs.exit_code <= 1
+          }}
+        env:
+          CHAIN_DELAY_SECONDS: ${{ vars.CHAIN_DELAY_SECONDS || '270' }}
+        run: |
+          # 实测 GitHub 的 workflow_dispatch 是秒级启动，不等待会变成 1 分钟一轮。
+          # 默认睡 270 秒 + 本轮约 1 分钟 ≈ 5 分钟一轮；可用仓库变量 CHAIN_DELAY_SECONDS 调整。
+          sleep "${CHAIN_DELAY_SECONDS:-270}"
+          echo "自续跑：dispatch 下一轮（当前退出码 ${{ steps.collect.outputs.exit_code }}）"
+          curl -sS -X POST \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/monitor.yml/dispatches" \
+            -d '{"ref":"main"}' \
+            -w '\nHTTP %{http_code}\n' \
+            || echo "::warning::自续跑 dispatch 失败（可能 429 限流），本轮结束，等待下一次定时触发"
