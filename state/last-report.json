@@ -1,7 +1,7 @@
 {
-  "started_at": "2026-11-23T03:44:03.183407+00:00",
-  "finished_at": "2026-11-23T03:44:30.721485+00:00",
-  "gap_minutes": 315.6,
+  "started_at": "2026-11-23T14:38:41.325080+00:00",
+  "finished_at": "2026-11-23T14:39:31.418078+00:00",
+  "gap_minutes": 654.6,
   "mode": "send",
   "fetch_window_hours": 6.0,
   "push_window_hours": 5.0,
@@ -11,14 +11,14 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 816,
+      "count": 2225,
       "error": "",
       "detail": {
-        "entries": 13663,
-        "in_window": 816,
-        "skipped_old": 12847,
+        "entries": 13672,
+        "in_window": 2225,
+        "skipped_old": 11447,
         "truncated": true,
-        "bytes": 3094319
+        "bytes": 3094165
       }
     },
     {
@@ -26,11 +26,11 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 1,
+      "count": 19,
       "error": "",
       "detail": {
         "messages": 20,
-        "in_window": 1,
+        "in_window": 19,
         "mirror": "https://telegram.me/s/trackwhale",
         "mirrors_failed": []
       }
@@ -40,11 +40,11 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 0,
+      "count": 13,
       "error": "",
       "detail": {
         "messages": 20,
-        "in_window": 0,
+        "in_window": 13,
         "mirror": "https://telegram.me/s/whale_alert_io",
         "mirrors_failed": []
       }
@@ -54,11 +54,11 @@
       "layer": "discovery",
       "ok": true,
       "status": "ok",
-      "count": 6,
+      "count": 3,
       "error": "",
       "detail": {
         "rows": 16,
-        "in_window": 6,
+        "in_window": 3,
         "header": [
           "资产 / 时间",
           "转移金额",
@@ -115,7 +115,7 @@
       "layer": "chain",
       "ok": true,
       "status": "ok",
-      "count": 236,
+      "count": 250,
       "error": "",
       "detail": {
         "scanned": 20,
@@ -129,148 +129,179 @@
   "price_source": "kraken",
   "labels": {
     "cex": 373,
-    "attribution": 0,
-    "hit": 0,
-    "miss": 274
+    "attribution": 26587,
+    "hit": 3,
+    "miss": 203
   },
   "cloud": {
     "queries": [
       "巨鲸转账 交易所 转入 大额",
+      "大额 USDT 转入 交易所 链上",
       "whale transfer exchange inflow 10 million"
     ],
     "engine_counts": {
-      "exa_public": 2
+      "exa_public": 3
     },
-    "hits": 10,
+    "hits": 15,
     "errors": [],
-    "skipped": [
-      "大额 USDT 转入 交易所 链上: 无结果"
-    ]
+    "skipped": []
   },
   "stats": {
-    "raw": 1109,
+    "raw": 2560,
     "no_quantity": 0,
-    "filtered": 93,
-    "unlabeled": 852,
+    "filtered": 164,
+    "unlabeled": 2156,
     "no_link": 0,
-    "too_old": 0,
-    "below_threshold": 148,
-    "pushable": 16
+    "too_old": 3,
+    "below_threshold": 196,
+    "pushable": 41
   },
   "candidates": [
     {
-      "message": "【加急】约 1.0089 亿美元｜100,888,108 USDC｜未知钱包 → Binance｜约 10:01",
-      "usd": 100888107.79,
+      "message": "【加急】约 3.312 亿美元｜5,222 BTC（18 笔各 290.1128 BTC）｜未知钱包 → Coinbase Prime｜约 20:35",
+      "usd": 331200000.0,
       "direction": "转入交易所",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0xeeee85e944aa2ffb31b55a900503886cf19a84bc04e26b3bc8fde0fd0020ba86",
-      "delay_minutes": 103.3
+      "count": 18,
+      "url": "https://trackwhale.io/transaction/b4c41e89c2d2503a8d159180f83fc0362088d4fc3e308a12de0be861a76683ad",
+      "delay_minutes": 123.9
     },
     {
-      "message": "【加急】约 7500 万美元｜75,000,000 USDT（2 笔）｜未知钱包 → Bitfinex｜约 10:50",
-      "usd": 75000000.0,
-      "direction": "转入交易所",
-      "count": 2,
-      "url": "https://etherscan.io/tx/0x4eec2cb7b4dd6a6aceec3c672b90dcdc73b02909acd3c458dab7f1302efedd37",
-      "delay_minutes": 53.5
-    },
-    {
-      "message": "【加急】约 7159.23 万美元｜71,592,303 USDT（3 笔）｜OKX → OKX｜约 10:39",
-      "usd": 71592303.24000001,
-      "direction": "所间转账",
-      "count": 3,
-      "url": "https://etherscan.io/tx/0x0f8a1f4dc38c942d78a8a464c023bf54898b714be35679b5a7aa5aab403e253f",
-      "delay_minutes": 64.8
-    },
-    {
-      "message": "约 5000 万美元｜49,999,998 USDT｜Bitfinex → 未知钱包｜约 11:07",
-      "usd": 49999997.8521,
+      "message": "【加急】约 1.5829 亿美元｜2,583 BTC（3 笔）｜Coinbase Institutional → 未知钱包｜约 21:04",
+      "usd": 158293549.0,
       "direction": "转出交易所",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0x98d6662925d52a64cc0f2ccdf91345ff22911f7c79df2823dba5e1ae7af0c866",
-      "delay_minutes": 36.9
+      "count": 3,
+      "url": "https://whale-alert.io/transaction/bitcoin/73de302d5aefd3f911a54bfed2c6baafb54d294c09e5458c3318ea7a8822f731",
+      "delay_minutes": 95.3
     },
     {
-      "message": "约 4851.32 万美元｜48,513,192 USDT｜OKX → OKX｜约 09:52",
-      "usd": 48513191.678739,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0x4039fae387e2a6f82701f25960d9f8763c6ff4fbc39d4ff7bff4bb19b9de24ec",
-      "delay_minutes": 111.7
-    },
-    {
-      "message": "约 2916.91 万美元｜17,134 ETH｜OKX → OKX｜约 10:39",
-      "usd": 29169062.18,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://etherscan.io/tx/0x5980269d7b519b90ce05210706fa9706bc70a194739d2f14206d6a5f4474a5e8",
-      "delay_minutes": 64.7
-    },
-    {
-      "message": "约 2568.92 万美元｜422.4648 BTC｜OKX → OKX｜约 10:08",
-      "usd": 25689241.64,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://mempool.space/tx/afd742927da6c1f9720ae0f05bd7906481fcaa2106f0763851640202ea769f86",
-      "delay_minutes": 96.1
-    },
-    {
-      "message": "约 2361.16 万美元｜389.45 BTC｜OKX → OKX｜约 10:45",
-      "usd": 23611574.6,
-      "direction": "所间转账",
-      "count": 1,
-      "url": "https://mempool.space/tx/36e7e944a2221031c764e96af511e84db1bf7086733c6addf1d8100ed40b4e7b",
-      "delay_minutes": 58.8
-    },
-    {
-      "message": "约 2002.66 万美元｜20,026,595 USDC｜未知钱包 → Coinbase｜约 11:01",
-      "usd": 20026595.1706,
+      "message": "【加急】约 1.472 亿美元｜85,500 ETH｜未知钱包 → Binance｜约 20:28",
+      "usd": 147198649.0,
       "direction": "转入交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x6eccc82cb7bf1c35bedc56a878b8ae7d2587e2c14d8d20a29034e0b22696593d",
-      "delay_minutes": 43.3
+      "url": "https://whale-alert.io/transaction/ethereum/0x9d208b214a2870628dd1f9ea7ecf79dd1e50c008392e583f034d61e40ce658f1",
+      "delay_minutes": 130.6
     },
     {
-      "message": "约 2000 万美元｜20,000,000 USDT｜未知钱包 → Bitfinex｜约 11:01",
+      "message": "【加急】约 1.04 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 20:14",
+      "usd": 103995630.0,
+      "direction": "转出交易所",
+      "count": 2,
+      "url": "https://whale-alert.io/transaction/bitcoin/826f0b31c68e2a5955b36d3946a329056894aa99435cfad7824094194b526229",
+      "delay_minutes": 145.2
+    },
+    {
+      "message": "【加急】约 1.0392 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 20:36",
+      "usd": 103920100.0,
+      "direction": "转出交易所",
+      "count": 2,
+      "url": "https://whale-alert.io/transaction/bitcoin/d14e197f41cd665830c485e12225ff5dfab8aa904ed02e2bfa99699643097e55",
+      "delay_minutes": 123.5
+    },
+    {
+      "message": "【加急】约 1.038 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 21:49",
+      "usd": 103798833.0,
+      "direction": "转出交易所",
+      "count": 2,
+      "url": "https://whale-alert.io/transaction/bitcoin/eba273ce12ac790db838a87452c584088f17facaa77256cb5f7f744890200bac",
+      "delay_minutes": 50.5
+    },
+    {
+      "message": "【加急】约 9700 万美元｜97,000,000 USDT｜未知钱包 → Bitfinex｜约 20:19",
+      "usd": 97000000.0,
+      "direction": "转入交易所",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x1816c81a032951b1f04ec22bcc1a977a53da00ec5634c4b424aa88a654c423c4",
+      "delay_minutes": 139.9
+    },
+    {
+      "message": "【加急】约 5304.24 万美元｜53,042,373 USDT｜未知钱包 → Binance｜约 17:40",
+      "usd": 53042372.912,
+      "direction": "转入交易所",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x47785afd43206ffd62eee39002feb04144fe19d8094af814921bfa13a0ce7904",
+      "delay_minutes": 299.1
+    },
+    {
+      "message": "约 4756.86 万美元｜777.1499 BTC（2 笔）｜OKX → OKX｜约 21:45",
+      "usd": 47568571.17,
+      "direction": "所间转账",
+      "count": 2,
+      "url": "https://mempool.space/tx/2af603280193ac88c210ae0c8124843ddd3ddf61fe8e25f072a01f76d9a22db4",
+      "delay_minutes": 54.5
+    },
+    {
+      "message": "约 2746.63 万美元｜89,000,076 TRX｜未知钱包 → Bybit｜约 22:09",
+      "usd": 27466297.0,
+      "direction": "转入交易所",
+      "count": 1,
+      "url": "https://whale-alert.io/transaction/tron/94dfb1cc3d3394240acc47c22abf498f4684b94f563cb92cf786b082b6b3ec64",
+      "delay_minutes": 30.1
+    },
+    {
+      "message": "约 2594.67 万美元｜15,043 ETH｜OKX → OKX｜约 21:22",
+      "usd": 25946695.57,
+      "direction": "所间转账",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x9bb79089b125f08a29f84c34c577525f545d3579f919d2ed6c94f294095f15fb",
+      "delay_minutes": 76.9
+    },
+    {
+      "message": "约 2139.27 万美元｜21,392,696 USDC（2 笔各 10,696,348 USDC）｜OKX → OKX｜约 21:24",
+      "usd": 21392696.16,
+      "direction": "所间转账",
+      "count": 2,
+      "url": "https://etherscan.io/tx/0x081cd87df2dc82e9e61e4ad2139655ff4214fa9808a022f2ed169c5a58e3d73b",
+      "delay_minutes": 74.9
+    },
+    {
+      "message": "约 2000 万美元｜20,000,000 USDC｜未知钱包 → Coinbase｜约 22:19",
       "usd": 20000000.0,
       "direction": "转入交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0xb02ce20bdcefd8ef2bef3feb34feffae690a6fd2bc55b6c16e490d1911018818",
-      "delay_minutes": 43.1
+      "url": "https://etherscan.io/tx/0x327c337b444fea62a82d200abe3ad5ccf6213a9fca84f55eb01290f385230635",
+      "delay_minutes": 20.3
     },
     {
-      "message": "约 1990 万美元｜19,899,999 USDT｜未知钱包 → Bybit｜约 10:37",
-      "usd": 19899999.4,
+      "message": "约 1928.09 万美元｜19,280,885 USDC｜未知钱包 → Coinbase｜约 19:13",
+      "usd": 19280885.042061,
       "direction": "转入交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x93e43f33cc512e4a3008841cb3a91e016e5f3dc9af8eeb02e8a00ebdcaf87620",
-      "delay_minutes": 66.8
+      "url": "https://etherscan.io/tx/0x2b1ca1998e85b4a23787d1dc48c795aeb920de59a7206a372a7bcc8aa7eba702",
+      "delay_minutes": 206.3
     },
     {
-      "message": "约 1822.34 万美元｜18,223,381 USDT｜OKX → OKX｜约 10:10",
-      "usd": 18223381.349067,
-      "direction": "所间转账",
+      "message": "约 1788.2 万美元｜17,882,017 USDC｜Coinbase → 未知钱包｜约 22:22",
+      "usd": 17882017.460438,
+      "direction": "转出交易所",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x2ba554e67104f780464cda379a3d3ebbbbf35b88b46c7fd101f8c7079ac772b7",
-      "delay_minutes": 93.7
+      "url": "https://etherscan.io/tx/0x99bd12521e73610a4c60f95639430b862b7192b831686f36cddc6a40df927a9b",
+      "delay_minutes": 17.1
     },
     {
-      "message": "约 1145.46 万美元｜6,700 ETH｜OKX → OKX｜约 09:52",
-      "usd": 11454622.25,
+      "message": "约 1733.39 万美元｜17,333,853 USDT｜OKX → OKX｜约 21:22",
+      "usd": 17333852.508413,
       "direction": "所间转账",
       "count": 1,
-      "url": "https://etherscan.io/tx/0x6e6062ea21d622cad3c29f3691bd1236d3b3bf5c242004e0b2e421130a42b325",
-      "delay_minutes": 111.7
+      "url": "https://etherscan.io/tx/0x2ef5236d61b187c95e998578456cc82e7a76d1734e53ab67871511f5105c53a6",
+      "delay_minutes": 76.9
+    },
+    {
+      "message": "约 1036.96 万美元｜10,369,630 USDC｜未知钱包 → OKX｜约 19:54",
+      "usd": 10369630.0,
+      "direction": "转入交易所",
+      "count": 1,
+      "url": "https://etherscan.io/tx/0x55a288b3bde9baaffe3e95ee817ceace09d3659f707432ad71662d44a9e7260b",
+      "delay_minutes": 165.1
     }
   ],
   "telegram_messages": 1,
-  "round_message": "巨鲸转账 · 本轮 13 条\n\n转入交易所（5 条）\n【加急】约 1.0089 亿美元｜100,888,108 USDC｜未知钱包 → Binance｜约 10:01\n约 1990 万美元｜19,899,999 USDT｜未知钱包 → Bybit｜约 10:37\n【加急】约 7500 万美元｜75,000,000 USDT（2 笔）｜未知钱包 → Bitfinex｜约 10:50\n约 2002.66 万美元｜20,026,595 USDC｜未知钱包 → Coinbase｜约 11:01\n约 2000 万美元｜20,000,000 USDT｜未知钱包 → Bitfinex｜约 11:01\n━━━━━━━━━━━━━━━━\n转出交易所（1 条）\n约 5000 万美元｜49,999,998 USDT｜Bitfinex → 未知钱包｜约 11:07\n━━━━━━━━━━━━━━━━\n所间转账（7 条）\n约 4851.32 万美元｜48,513,192 USDT｜OKX → OKX｜约 09:52\n约 1145.46 万美元｜6,700 ETH｜OKX → OKX｜约 09:52\n约 2568.92 万美元｜422.4648 BTC｜OKX → OKX｜约 10:08\n约 1822.34 万美元｜18,223,381 USDT｜OKX → OKX｜约 10:10\n【加急】约 7159.23 万美元｜71,592,303 USDT（3 笔）｜OKX → OKX｜约 10:39\n约 2916.91 万美元｜17,134 ETH｜OKX → OKX｜约 10:39\n约 2361.16 万美元｜389.45 BTC｜OKX → OKX｜约 10:45",
+  "round_message": "巨鲸转账 · 本轮 17 条\n\n转入交易所（8 条）\n【加急】约 5304.24 万美元｜53,042,373 USDT｜未知钱包 → Binance｜约 17:40\n约 1928.09 万美元｜19,280,885 USDC｜未知钱包 → Coinbase｜约 19:13\n约 1036.96 万美元｜10,369,630 USDC｜未知钱包 → OKX｜约 19:54\n【加急】约 9700 万美元｜97,000,000 USDT｜未知钱包 → Bitfinex｜约 20:19\n【加急】约 1.472 亿美元｜85,500 ETH｜未知钱包 → Binance｜约 20:28\n【加急】约 3.312 亿美元｜5,222 BTC（18 笔各 290.1128 BTC）｜未知钱包 → Coinbase Prime｜约 20:35\n约 2746.63 万美元｜89,000,076 TRX｜未知钱包 → Bybit｜约 22:09\n约 2000 万美元｜20,000,000 USDC｜未知钱包 → Coinbase｜约 22:19\n━━━━━━━━━━━━━━━━\n转出交易所（5 条）\n【加急】约 1.04 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 20:14\n【加急】约 1.0392 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 20:36\n【加急】约 1.5829 亿美元｜2,583 BTC（3 笔）｜Coinbase Institutional → 未知钱包｜约 21:04\n【加急】约 1.038 亿美元｜1,694 BTC（2 笔各 847 BTC）｜Coinbase Institutional → 未知钱包｜约 21:49\n约 1788.2 万美元｜17,882,017 USDC｜Coinbase → 未知钱包｜约 22:22\n━━━━━━━━━━━━━━━━\n所间转账（4 条）\n约 2594.67 万美元｜15,043 ETH｜OKX → OKX｜约 21:22\n约 2139.27 万美元｜21,392,696 USDC（2 笔各 10,696,348 USDC）｜OKX → OKX｜约 21:24\n约 1733.39 万美元｜17,333,853 USDT｜OKX → OKX｜约 21:22\n约 4756.86 万美元｜777.1499 BTC（2 笔）｜OKX → OKX｜约 21:45",
   "skipped_too_long": false,
   "archive": "state/archive/2026-11-23.jsonl",
-  "archive_only": 148,
+  "archive_only": 196,
   "push_delay_minutes": {
-    "min": 36.9,
-    "max": 111.7
+    "min": 17.1,
+    "max": 299.1
   },
   "push_failed": [],
   "rest": []
