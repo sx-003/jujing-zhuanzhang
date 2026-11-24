@@ -131,7 +131,8 @@ def build_round_text(selected: List[Candidate]) -> str:
     """
     if not selected:
         return ""
-    lines = [f"巨鲸转账 · 本轮 {len(selected)} 条", ""]
+    round_total = sum(item.usd for item in selected)
+    lines = [f"巨鲸转账 · 本轮 {len(selected)} 条 · 共计{rules.format_usd_sum(round_total)}", ""]
     grouped_ids = set()
     first_group = True
     for direction in GROUP_ORDER:
@@ -144,14 +145,16 @@ def build_round_text(selected: List[Candidate]) -> str:
         if not first_group:
             lines.append(GROUP_DIVIDER)
         first_group = False
-        lines.append(f"{GROUP_TITLES[direction]}（{len(group)} 条）")
+        group_total = sum(item.usd for _, item in group)
+        lines.append(f"{GROUP_TITLES[direction]}（{len(group)} 条）· 共计{rules.format_usd_sum(group_total)}")
         lines.extend(item.message() for _, item in group)
     leftovers = [(index, item) for index, item in enumerate(selected) if index not in grouped_ids]
     if leftovers:
         leftovers.sort(key=lambda pair: (min(i.ts for i in pair[1].items), -pair[1].usd))
         if not first_group:
             lines.append(GROUP_DIVIDER)
-        lines.append(f"其他转账（{len(leftovers)} 条）")
+        leftover_total = sum(item.usd for _, item in leftovers)
+        lines.append(f"其他转账（{len(leftovers)} 条）· 共计{rules.format_usd_sum(leftover_total)}")
         lines.extend(item.message() for _, item in leftovers)
     return "\n".join(lines)
 

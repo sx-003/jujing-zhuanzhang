@@ -115,8 +115,10 @@ def main() -> int:
             _cand_at(rules.DIR_CEX2CEX, 22_000_000, "Kraken", 1500),
         ])
         grouped_lines = grouped.splitlines()
-        if grouped_lines[0] != "巨鲸转账 · 本轮 4 条":
+        if not grouped_lines[0].startswith("巨鲸转账 · 本轮 4 条"):
             failures.append("分组消息总标题条数不对")
+        if "共计" not in grouped_lines[0]:
+            failures.append("分组消息总标题缺金额合计")
         if "转入交易所（2 条）" not in grouped:
             failures.append("分组消息缺「转入交易所（2 条）」小标题")
         if "转出交易所（1 条）" not in grouped or "所间转账（1 条）" not in grouped:

@@ -277,6 +277,16 @@ def format_usd(usd: float) -> str:
     return "约 " + f"{value:,.0f}" + " 美元"
 
 
+def format_usd_sum(usd: float) -> str:
+    """合计用：比单条更粗的精度，避免「约 12.1883 亿美元」这种读着累的写法。"""
+    value = float(usd or 0)
+    if value >= 100_000_000:
+        return "约 " + _trim(f"{value / 100_000_000:.2f}") + " 亿美元"
+    if value >= 10_000:
+        return "约 " + _trim(f"{value / 10_000:.0f}") + " 万美元"
+    return "约 " + f"{value:,.0f}" + " 美元"
+
+
 def _trim(text: str) -> str:
     if "." in text:
         text = text.rstrip("0").rstrip(".")

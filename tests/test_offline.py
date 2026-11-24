@@ -294,8 +294,10 @@ class TestTelegramBatching(unittest.TestCase):
                  self._candidate(rules.DIR_CEX2CEX, 25_000_000, "https://x/4", to_label="Kraken")]
         text = monitor_run.build_round_text(items)
         body = [line for line in text.splitlines() if line.strip()]
-        self.assertEqual(body[0], "巨鲸转账 · 本轮 4 条")
-        self.assertEqual(body[1], "转入交易所（2 条）")
+        self.assertTrue(body[0].startswith("巨鲸转账 · 本轮 4 条"))
+        self.assertIn("共计", body[0])
+        self.assertTrue(body[1].startswith("转入交易所（2 条）"))
+        self.assertIn("共计约 9000 万美元", body[1])
         self.assertEqual(text.count(monitor_run.GROUP_DIVIDER), 2)
         # 转入组排在转出组前面，所间转账放最后
         self.assertLess(text.index("转入交易所（2 条）"), text.index("转出交易所（1 条）"))
@@ -312,7 +314,8 @@ class TestTelegramBatching(unittest.TestCase):
                                              cand(10_000_000, 1_000, "未知钱包"),
                                              cand(20_000_000, 3_000, "未知钱包")])
         body = [line for line in text.splitlines() if line.strip()]
-        self.assertEqual(body[1], "转出交易所（3 条）")
+        self.assertTrue(body[1].startswith("转出交易所（3 条）"))
+        self.assertIn("共计约 6000 万美元", body[1])
         self.assertEqual(text.count(monitor_run.GROUP_DIVIDER), 0)
         # 时间升序：ts=1000 → 3000 → 4000，与金额大小无关
         self.assertIn("1000 万美元", body[2])
@@ -341,8 +344,8 @@ class TestTelegramBatching(unittest.TestCase):
         # 分割线在两组之间：第一组条目之后、第二组标题之前
         lines = two.splitlines()
         divider_at = lines.index(monitor_run.GROUP_DIVIDER)
-        self.assertEqual(lines[divider_at + 1], "转出交易所（1 条）")
-        self.assertNotEqual(lines[divider_at - 1], "巨鲸转账 · 本轮 2 条")
+        self.assertTrue(lines[divider_at + 1].startswith("转出交易所（1 条）"))
+        self.assertFalse(lines[divider_at - 1].startswith("巨鲸转账 · 本轮 2 条"))
         self.assertFalse(two.rstrip().endswith(monitor_run.GROUP_DIVIDER))
 
     def test_empty_group_hidden(self):
