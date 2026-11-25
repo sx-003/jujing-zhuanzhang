@@ -131,8 +131,7 @@ def build_round_text(selected: List[Candidate]) -> str:
     """
     if not selected:
         return ""
-    round_total = sum(item.usd for item in selected)
-    lines = [f"巨鲸转账 · 本轮 {len(selected)} 条 · 共计{rules.format_usd_sum(round_total)}", ""]
+    lines = [f"巨鲸转账 · 本轮 {len(selected)} 条", ""]
     grouped_ids = set()
     first_group = True
     for direction in GROUP_ORDER:

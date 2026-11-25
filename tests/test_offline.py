@@ -295,7 +295,7 @@ class TestTelegramBatching(unittest.TestCase):
         text = monitor_run.build_round_text(items)
         body = [line for line in text.splitlines() if line.strip()]
         self.assertTrue(body[0].startswith("巨鲸转账 · 本轮 4 条"))
-        self.assertIn("共计", body[0])
+        self.assertNotIn("共计", body[0])
         self.assertTrue(body[1].startswith("转入交易所（2 条）"))
         self.assertIn("共计约 9000 万美元", body[1])
         self.assertEqual(text.count(monitor_run.GROUP_DIVIDER), 2)

@@ -28,10 +28,11 @@ class TestGroupTotals(unittest.TestCase):
         self.assertIn("转入交易所（2 条）· 共计约 1.74 亿美元", text)
         self.assertIn("转出交易所（1 条）· 共计约 2.96 亿美元", text)
 
-    def test_round_title_has_total(self):
-        text = self._build()
-        self.assertIn("本轮 3 条", text)
-        self.assertIn("共计约 4.7 亿美元", text.splitlines()[0])
+    def test_round_title_has_no_total(self):
+        # 用户 2026-11-25 要求：顶部不显示合计，只在分组标题里显示。
+        first = self._build().splitlines()[0]
+        self.assertIn("本轮 3 条", first)
+        self.assertNotIn("共计", first)
 
     def test_empty_round_returns_empty(self):
         self.assertEqual(run.build_round_text([]), "")

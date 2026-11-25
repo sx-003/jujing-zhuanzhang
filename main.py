@@ -117,8 +117,10 @@ def main() -> int:
         grouped_lines = grouped.splitlines()
         if not grouped_lines[0].startswith("巨鲸转账 · 本轮 4 条"):
             failures.append("分组消息总标题条数不对")
-        if "共计" not in grouped_lines[0]:
-            failures.append("分组消息总标题缺金额合计")
+        if "共计" in grouped_lines[0]:
+            failures.append("分组消息总标题不该再显示合计（合计只在分组标题里）")
+        if "共计" not in grouped[grouped.index("转入交易所（2 条）"):]:
+            failures.append("分组标题缺金额合计")
         if "转入交易所（2 条）" not in grouped:
             failures.append("分组消息缺「转入交易所（2 条）」小标题")
         if "转出交易所（1 条）" not in grouped or "所间转账（1 条）" not in grouped:
